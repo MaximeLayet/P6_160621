@@ -1,3 +1,4 @@
+//importation de bcrypt et jwt//
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
