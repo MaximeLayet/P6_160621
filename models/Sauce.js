@@ -1,6 +1,8 @@
+//import du package mongoose
 const mongoose = require("mongoose");
 
-const thingSchema = mongoose.Schema({
+//Construction du schéma de l'objet
+const sauceSchema = mongoose.Schema({
 	userId: { type: String, required: true },
 	name: { type: String, required: true },
 	manufacturer: { type: String, required: true },
@@ -14,4 +16,5 @@ const thingSchema = mongoose.Schema({
 	usersDisliked: { type: [String], default: [] }
 });
 
-module.exports = mongoose.model("Thing", thingSchema);
+//Export du schéma
+module.exports = mongoose.model("Sauce", sauceSchema);
