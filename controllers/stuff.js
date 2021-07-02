@@ -33,14 +33,12 @@ exports.getOneSauce = (req, res, next) => {
 
 //Permet de modifier une sauce avec suppression de l'ancienne photo si la photo est modifiée
 exports.modifySauce = (req, res, next) => {
-	Sauce.findOne({ _id: req.params.id }).then(sauce => {
-		const filename = sauce.imageUrl.split("/images/")[1];
-		fs.unlink(`images/${filename}`, () => {
-			Sauce.deleteOne({ imageUrl: req.params.imageUrl })
-				.then(() => res.status(200))
-				.catch(error => res.status(400).json({ error }));
+	if (req.file) {
+		Sauce.findOne({ _id: req.params.id }).then(sauce => {
+			const filename = sauce.imageUrl.split("/images/")[1];
+			fs.unlink(`images/${filename}`, () => {});
 		});
-	});
+	}
 	//pour vérifier sur req.file existe sinon création
 	const sauceObject = req.file
 		? {

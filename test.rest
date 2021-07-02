@@ -1,0 +1,30 @@
+POST http://localhost:3000/api/auth/signup
+Content-Type: application/json
+
+{
+    "email": "test@example.com",
+    "password": "test"
+}
+###
+
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "test@example.com",
+    "password": "test"
+}
+###
+
+GET http://localhost:3000/api/sauces
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGRkYjY5ZDNhNjA5MDA5NzFkNzE0ZjEiLCJpYXQiOjE2MjUxNDI5ODAsImV4cCI6MTYyNTIyOTM4MH0.WTQLabBaAIBEFi5vgKLFvu5MspcJZetiLC5EWElsAIM
+###
+
+PUT  http://localhost:3000/api/sauces/60ddb3d99d048d2459eac546
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGRkYjY5ZDNhNjA5MDA5NzFkNzE0ZjEiLCJpYXQiOjE2MjUxNDI5ODAsImV4cCI6MTYyNTIyOTM4MH0.WTQLabBaAIBEFi5vgKLFvu5MspcJZetiLC5EWElsAIM
+
+{
+    "name": "test",
+    "userId": "60ddb69d3a60900971d714f1"
+}

@@ -13,6 +13,11 @@ const path = require("path");
 const expressMongoSanitize = require("express-mongo-sanitize");
 //Import du package ERL
 const expressRateLimit = require("express-rate-limit");
+//Import package dotenv
+const dotenv = require("dotenv");
+dotenv.config();
+const USER_DB = process.env.USER_DB;
+const PASSWD = process.env.PASSWD;
 
 //Import du Router
 const stuffRoutes = require("./routes/stuff");
