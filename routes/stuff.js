@@ -9,13 +9,15 @@ const stuffCtrl = require("../controllers/stuff");
 const auth = require("../middleware/auth");
 //Import du middleware multer
 const multer = require("../middleware/multer-config");
+//Import du middleware isOwner
+const isOwner = require("../middleware/isOwner");
 
 //Création des routes pour le CRUD
 router.post("/", auth, multer, stuffCtrl.createSauce);
 router.get("/", auth, stuffCtrl.getAllSauce);
 
-router.put("/:id", auth, multer, stuffCtrl.modifySauce);
-router.delete("/:id", auth, stuffCtrl.deleteSauce);
+router.put("/:id", auth, isOwner, multer, stuffCtrl.modifySauce);
+router.delete("/:id", auth, isOwner, stuffCtrl.deleteSauce);
 router.get("/:id", auth, stuffCtrl.getOneSauce);
 router.post("/:id/like", auth, stuffCtrl.likeSauce);
 
