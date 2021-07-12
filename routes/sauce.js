@@ -3,8 +3,8 @@ const express = require("express");
 //Création d'un router
 const router = express.Router();
 
-//import du controlleur stuffCtrl
-const stuffCtrl = require("../controllers/stuff");
+//import du controlleur sauceCtrl
+const sauceCtrl = require("../controllers/sauce");
 //Import du middleware d'authenfication
 const auth = require("../middleware/auth");
 //Import du middleware multer
@@ -13,13 +13,13 @@ const multer = require("../middleware/multer-config");
 const isOwner = require("../middleware/isOwner");
 
 //Création des routes pour le CRUD
-router.post("/", auth, multer, stuffCtrl.createSauce);
-router.get("/", auth, stuffCtrl.getAllSauce);
+router.post("/", auth, multer, sauceCtrl.createSauce);
+router.get("/", auth, sauceCtrl.getAllSauce);
 
-router.put("/:id", auth, isOwner, multer, stuffCtrl.modifySauce);
-router.delete("/:id", auth, isOwner, stuffCtrl.deleteSauce);
-router.get("/:id", auth, stuffCtrl.getOneSauce);
-router.post("/:id/like", auth, stuffCtrl.likeSauce);
+router.put("/:id", auth, isOwner, multer, sauceCtrl.modifySauce);
+router.delete("/:id", auth, isOwner, sauceCtrl.deleteSauce);
+router.get("/:id", auth, sauceCtrl.getOneSauce);
+router.post("/:id/like", auth, sauceCtrl.likeSauce);
 
 //Export du router
 module.exports = router;

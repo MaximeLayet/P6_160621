@@ -21,7 +21,7 @@ const USER_DB = process.env.USER_DB;
 const PASSWD = process.env.PASSWD;
 
 //Import du Router
-const stuffRoutes = require("./routes/stuff");
+const sauceRoutes = require("./routes/sauce");
 //Import du user router
 const userRoutes = require("./routes/user");
 
@@ -64,7 +64,7 @@ app.use(bodyParser.json());
 //middleware pour les requetes d'image
 app.use("/images", express.static(path.join(__dirname, "images")));
 //Import du router
-app.use("/api/sauces", stuffRoutes);
+app.use("/api/sauces", sauceRoutes);
 //Pour enregistrer les routes
 app.use("/api/auth", userRoutes);
 
