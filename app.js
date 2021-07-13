@@ -59,7 +59,7 @@ mongoose
 	.catch(() => console.log("Connexion à MongoDB échouée !"));
 
 //Permet de transformer le corps de la requete en objet JavaScript utilisable
-app.use(bodyParser.json());
+app.use(express.json());
 
 //middleware pour les requetes d'image
 app.use("/images", express.static(path.join(__dirname, "images")));
